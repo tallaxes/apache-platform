@@ -1,0 +1,94 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.talend.se.platform.apache</groupId>
+    <artifactId>esb</artifactId>
+    <version>6.1.1</version>
+    <packaging>pom</packaging>
+
+    <name>platform :: apache-esb</name>
+    <description>Platform pom that uses dependencyManagement imports of parent
+        poms from component Apache projects to establish a consistent baseline set of
+        dependency versions for comparison with the talend-esb platform pom.</description>
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<cxf.version>3.1.4</cxf.version>
+        <karaf.version>4.0.3</karaf.version>
+        <camel.version>2.15.4</camel.version>
+        <activemq.version>5.11.3</activemq.version>
+        <spring.version>3.2.14.RELEASE</spring.version>
+    </properties>
+    
+    <dependencyManagement>
+        <dependencies>
+            <!-- note that the order is important here.  the cxf component must come
+            prior to the camel component in order to ensure the woodstox.core
+            version is preserved.  camel, cxf and activemq must come before the
+            karaf version in order to override karaf versions.
+            -->
+            <dependency>
+                <groupId>com.talend.se.platform.apache</groupId>
+                <artifactId>cxf</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.talend.se.platform.apache</groupId>
+                <artifactId>camel</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.talend.se.platform.apache</groupId>
+                <artifactId>activemq</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.talend.se.platform.apache</groupId>
+                <artifactId>karaf</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- these jars are outputs of the Apache build, so they are driven
+            by the same versions of CXF, Camel, Karaf, and ActiveMQ used above,
+            but are not part of those parent poms. -->
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-core</artifactId>
+                <version>${cxf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-frontend-jaxws</artifactId>
+                <version>${cxf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+                <version>${cxf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-transports-http</artifactId>
+                <version>${cxf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-transports-http-jetty</artifactId>
+                <version>${cxf.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>

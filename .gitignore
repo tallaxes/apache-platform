@@ -1,0 +1,13 @@
+# ignore all bin directories
+# matches "bin" in any subfolder
+bin/
+
+# ignore all target directories
+target/
+
+# ignore generated source and resources
+generated-sources/
+generated-resources/
+
+# ignore all files ending with ~
+*~
