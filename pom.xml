@@ -8,10 +8,11 @@
     <name>platform</name>
     <description>POM's used for dependency management to ensure version consistency with specific Apache and Talend products.</description>
     <modules>
-        <module>apache/karaf</module>
-        <module>apache/camel</module>
+        <module>apache/spring</module>
         <module>apache/cxf</module>
+        <module>apache/camel</module>
         <module>apache/activemq</module>
+        <module>apache/karaf</module>
         <module>apache/esb</module>
         <module>talend/tesb</module>
     </modules>

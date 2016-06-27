@@ -13,12 +13,16 @@
 		to import dependencyManagement from org.apache.karaf:karaf.
 	</description>
 	
+	<properties>
+		<karaf.version>4.0.3</karaf.version>
+	</properties>
+	
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.apache.karaf</groupId>
                 <artifactId>karaf</artifactId>
-                <version>4.0.3</version>
+                <version>${karaf.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

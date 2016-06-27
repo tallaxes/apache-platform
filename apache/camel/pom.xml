@@ -13,13 +13,17 @@
     	to import dependencyManagement from org.apache.camel:camel-parent.
 	</description>
  
+ 	<properties>
+ 		<camel.version>2.15.4</camel.version>
+ 	</properties>
+ 
  
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-parent</artifactId>
-                <version>2.15.4</version>
+                <version>${camel.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

@@ -23,13 +23,20 @@
         <spring.version>3.2.14.RELEASE</spring.version>
     </properties>
     
+    
+    <!-- note that the order is important here.  Specific components must come
+    prior to composite components in order to ensure specific versions
+    are preserved. -->
+
     <dependencyManagement>
-        <dependencies>
-            <!-- note that the order is important here.  the cxf component must come
-            prior to the camel component in order to ensure the woodstox.core
-            version is preserved.  camel, cxf and activemq must come before the
-            karaf version in order to override karaf versions.
-            -->
+        <dependencies>            
+            <dependency>
+                <groupId>com.talend.se.platform.apache</groupId>
+                <artifactId>spring</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>com.talend.se.platform.apache</groupId>
                 <artifactId>cxf</artifactId>
@@ -58,8 +65,14 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+		</dependency>
+	</dependencies>
 
 </project>
