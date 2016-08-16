@@ -7,6 +7,20 @@
     <packaging>pom</packaging>
     <name>platform</name>
     <description>POM's used for dependency management to ensure version consistency with specific Apache and Talend products.</description>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>localSnapshots</id>
+			<name>local snapshots</name>
+			<url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>localReleases</id>
+			<name>local releases</name>
+			<url>http://localhost:8081/nexus/content/repositories/releases</url>
+		</repository>
+	</distributionManagement>
+
     <modules>
         <module>apache/spring</module>
         <module>apache/cxf</module>

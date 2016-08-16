@@ -13,6 +13,19 @@
     	to import dependencyManagement from org.apache.camel:camel-parent.
 	</description>
  
+	<distributionManagement>
+		<snapshotRepository>
+			<id>localSnapshots</id>
+			<name>local snapshots</name>
+			<url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>localReleases</id>
+			<name>local releases</name>
+			<url>http://localhost:8081/nexus/content/repositories/releases</url>
+		</repository>
+	</distributionManagement>
+ 
  	<properties>
  		<camel.version>2.15.4</camel.version>
  	</properties>

@@ -13,6 +13,19 @@
     	to create dependencyManagement for Spring.
 	</description>
 
+	<distributionManagement>
+		<snapshotRepository>
+			<id>localSnapshots</id>
+			<name>local snapshots</name>
+			<url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>localReleases</id>
+			<name>local releases</name>
+			<url>http://localhost:8081/nexus/content/repositories/releases</url>
+		</repository>
+	</distributionManagement>
+
 	<properties>
 		<spring.version>3.2.14.RELEASE</spring.version>
 	</properties>

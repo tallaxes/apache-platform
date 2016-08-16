@@ -13,8 +13,22 @@
 		to import dependencyManagement from org.apache.karaf:karaf.
 	</description>
 	
+	<distributionManagement>
+		<snapshotRepository>
+			<id>localSnapshots</id>
+			<name>local snapshots</name>
+			<url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>localReleases</id>
+			<name>local releases</name>
+			<url>http://localhost:8081/nexus/content/repositories/releases</url>
+		</repository>
+	</distributionManagement>
+
 	<properties>
 		<karaf.version>4.0.3</karaf.version>
+		<karaf.tooling.version>2.4.4</karaf.tooling.version>
 	</properties>
 	
     <dependencyManagement>
@@ -28,5 +42,17 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.karaf.tooling</groupId>
+					<artifactId>features-maven-plugin</artifactId>
+					<version>${karaf.tooling.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 
 </project>

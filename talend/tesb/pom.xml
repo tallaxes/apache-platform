@@ -20,6 +20,19 @@
 		those found in the tesb pom for org.talend.esb:esb-parent
 	</description>
 
+	<distributionManagement>
+		<snapshotRepository>
+			<id>localSnapshots</id>
+			<name>local snapshots</name>
+			<url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>localReleases</id>
+			<name>local releases</name>
+			<url>http://localhost:8081/nexus/content/repositories/releases</url>
+		</repository>
+	</distributionManagement>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
